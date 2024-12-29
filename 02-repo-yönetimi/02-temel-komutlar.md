@@ -208,4 +208,4 @@ Git'in yapılandırılabileceği birkaç konum vardır. Daha genelden daha özel
 * **Local**: .git/config dosyası, yalnızca bir depo için yapılandırma ayarlarını içerir.
 * **Worktree**: .git/config.worktree dosyası, yalnızca bir çalışma ağacı için yapılandırma ayarlarını içerir.
 
-![Git Locations](images/locations.png)
+![Git Locations](../images/locations.png)

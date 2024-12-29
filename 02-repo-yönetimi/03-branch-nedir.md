@@ -3,7 +3,7 @@
 Git branch farklı değişiklikleri ayrı ayrı takip etmenize olanak tanır.
 Örneğin bir projede yeni bir özellik eklemek istediğinizde, bu özelliği geliştirmek için yeni bir branch oluşturabilirsiniz. Bu sayede, projenin ana yapısını bozmadan yeni özelliği geliştirebilirsiniz.
 
-![Branch](./images/branch.png)
+![Branch](../images/branch.png)
 
 Şu anda hangi branch üzerinde olduğunuzu görmek için `git branch` komutunu kullanabilirsiniz. Bu komut size mevcut branch'leri listeler ve hangi branch üzerinde olduğunuzu gösterir.
 
@@ -50,7 +50,7 @@ veya yeni bir branch oluşturup o branch'e geçmek için
 $ git switch -c new-branch-name
 ```
 
-![Branch](images/branch_1.png)
+![Branch](../images/branch_1.png)
 
 # Örnek Bir Senaryo
 
