@@ -3,18 +3,33 @@
 * Farklı branch'lerde yapılan değişiklikleri birleştirmek için kullanılır.
 
 ```bash
-A - B - E    main
+A - B - E      main
      \
       C - D    other_branch
 ```
 
 ```bash
-A - B - E - F    main
+A - B - E - F      main
      \     /
       C - D        other_branch
 ```
 
 ## Örnek Bir Senaryo
+
+*  `add_classics` branch'inde `classic.csv` dosyasını güncelleyelim.
+
+```bash
+nano classic.csv
+```
+
+```bash
+Fight Club, David Fincher ,1999
+```
+
+```bash
+git add classic.csv
+git commit -m "D: Add classic.csv"
+```
 
 * `main` branch'ine geçelim ve `contents.md` dosyasını oluşturalım.
 
@@ -38,26 +53,7 @@ git add contents.md
 git commit -m "E: Add contents.md"
 ```
 
-*  `add_classics` branch'inde `classic.csv` dosyasını güncelleyelim.
-
-```bash
-nano classic.csv
-```
-
-```bash
-Fight Club, David Fincher ,1999
-```
-
-```bash
-git add classic.csv
-git commit -m "D: Add classic.csv"
-```
-
-* `main` branch'ine geçelim ve `add_classics` branch'ini `main` branch'ine birleştirelim.
-
-```bash
-git switch main
-```
+* `add_classics` branch'ini `main` branch'ine birleştirelim.
 
 ```bash
 git merge add_classics
@@ -71,6 +67,12 @@ F: Merge add_classics branch
 
 ```bash
 git log --oneline --decorate --graph --parents
+```
+
+```bash
+A - B - E - F      main
+     \     /
+      C - D        add_classics
 ```
 
 # Rebase
@@ -89,26 +91,8 @@ A - B - C         main
           D - E   feature_branch
 ```
 
-* feature_branch'ini `main` branch'ine `rebase` işlemi uygulayarak birleştirelim. Öncelikle main branch'ine geçelim.
-
-```bash
-git switch main
-```
-* Örnek bir dosya oluşturalım.
-
-```python
-nano test.py
-```
-
-```python
-print("Hello, World!")
-```
-
-```bash
-git add test.py
-git commit -m "G: Add test.py"
-```
-* Ardından feature_branch'ine geçelim.
+* feature_branch'ini `main` branch'ine `rebase` işlemi uygulayarak birleştirelim. 
+* Öncelikle feature_branch'ine geçelim.
 
 ```bash 
 git switch -c feature_branch
@@ -139,6 +123,26 @@ print("Model dosyası")
 ```bash
 git add model.py
 git commit -m "I: Add model.py"
+```
+
+* Ardından main branch'ine geçelim.
+
+```bash
+git switch main
+```
+* Örnek bir dosya oluşturalım.
+
+```python
+nano test.py
+```
+
+```python
+print("Hello, World!")
+```
+
+```bash
+git add test.py
+git commit -m "G: Add test.py"
 ```
 * Repo commit geçmişi aşağıdaki gibi olacaktır.
 
@@ -229,7 +233,7 @@ git remote add origin {REMOTE_REPO_URL}
 * `fetch` komutu, uzak depodaki değişiklikleri yerel depoya indirmek için kullanılır. Yalnızca değişiklikleri indirir, yerel dosyaları değiştirmez. 
 
 ```bash
-git fetch origin/main
+git fetch origin main
 ```
 
 ```bash

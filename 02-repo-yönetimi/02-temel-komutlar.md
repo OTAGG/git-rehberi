@@ -9,7 +9,7 @@ Bir dosya Git deposunda birkaç durumdan birinde olabilir. İşte önemli olanla
 * `git status` komutu, dosyaların durumunu kontrol etmek için kullanılır. Öncelikle bir dosya oluşturalım.
 
 ```bash
-touch deneme.txt
+nano deneme.txt
 ```
 * Bazı değişiklikler yapalım.
 

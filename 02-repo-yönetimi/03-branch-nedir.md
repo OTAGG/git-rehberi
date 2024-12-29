@@ -57,7 +57,7 @@ $ git switch -c new-branch-name
 * add_classic adında bir branch oluşturup, bu branch'e geçin.
 
 ```bash
-$ git switch -c add_classic
+git switch -c add_classic
 ```
 
 * `add_classic` branch'inde `classic.csv` adında bir dosya oluşturun ve aşağıdaki içeriği ekleyin:
@@ -77,11 +77,11 @@ Monty Python and the Holy Grail, Terry Gilliam, 1975
 * Dosyayı staging area'ya ekleyin ve commit edin.
 
 ```bash
-$ git add classic.csv
-$ git commit -m "C: Add classic.csv"
+git add classic.csv
+git commit -m "C: Add classic.csv"
 ```
 * *git log* komutunu kullanarak commit'i kontrol edin.
 
 ```bash
-$ git log
+git log
 ```
