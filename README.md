@@ -10,7 +10,7 @@ Git, modern yazılım geliştirme süreçlerinde kullanılan en popüler versiyo
 
 ## 📋 Gereksinimler
 - Temel bilgisayar bilgisi
-- Git kurulumu yapılmış bir sistem (bkz. [Başlangıç](02-baslangic/README.md))
+- Shell (terminal) kullanımı hakkında temel bilgi
 
 ## 📚 İçindekiler
 1. [Git Nedir?](01-temel-bilgiler/01-git-nedir.md)
