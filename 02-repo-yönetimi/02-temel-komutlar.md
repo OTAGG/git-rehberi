@@ -11,6 +11,11 @@ Bir dosya Git deposunda birkaç durumdan birinde olabilir. İşte önemli olanla
 ```bash
 touch deneme.txt
 ```
+* Bazı değişiklikler yapalım.
+
+```bash
+Hello, World!
+```
 
 * Ardından `git status` komutunu çalıştıralım.
 

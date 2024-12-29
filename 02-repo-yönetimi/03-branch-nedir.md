@@ -20,12 +20,12 @@ $ git branch -m old-branch-name new-branch-name
 ## Branch Görselleştirme
 
 ```bash
-A --- B --- C --- D  (master)
+A --- B --- F --- G  (master)
          \
-          E --- F --- G  (feature)
+          C --- D --- E  (feature)
 ```
 
-Yukarıdaki örnekte, `master` branch'inde `A`, `B`, `C` ve `D` commit'leri bulunurken, `feature` branch'inde `A`, `B`, `E`, `F` ve `G` commit'leri bulunmaktadır.
+Yukarıdaki örnekte, `master` branch'inde `A`, `B`, `F` ve `G` commit'leri bulunurken, `feature` branch'inde `A`, `B`, `C`, `D` ve `E` commit'leri bulunmaktadır.
 
 ### Soru
 
