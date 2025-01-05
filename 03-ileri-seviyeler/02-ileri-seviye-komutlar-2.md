@@ -380,8 +380,269 @@ git branch -d banned
 git switch -c temp_main
 ```
 
+* Bazı değişiklikler yapalım ve commit edelim.
+
+```bash
+nano contents.md
+```
+
+```bash
+- classic.csv: A list of classic movies
+````
+```bash
+git add contents.md
+git commit -m "Q: Add classic.csv to contents.md"
+```
+
+```bash 
+nano classic.csv
+```
+
+```bash
+The Shawshank Redemption, Frank Darabont, 1994
+````
+```bash
+git add classic.csv
+git commit -m "R: Add The Shawshank Redemption to classic.csv"
+```
+
+```bash
+nano customers.csv
+```
+
+```bash
+Kayha,tbd,TheMarchOfTime,sidekick
+````
+```bash
+git add customers.csv
+git commit -m "S: Add customers.csv"
+```
+* `git rebase -i HEAD~3` komutu ile son 3 commit'i birleştirelim.
+
+```bash
+git rebase -i HEAD~3
+```
+
+* İlk commit'i `pick` olarak bırakalım, diğer iki commit'i `squash` olarak değiştirelim.
+
+```bash
+pick 1e3f4d1 Q: Add classic.csv to contents.md
+squash 2e3f4d2 R: Add The Shawshank Redemption to classic.csv
+squash 3e3f4d3 S: Add customers.csv
+```
+
+* Değişiklikleri kaydedip, kapatın.
+
+* Yeni bir commit mesajı oluşturun ve kaydedin.
+
+```bash
+Q: redacted.    
+```
+
+* `git log --oneline` komutu ile commit geçmişini inceleyelim.
+
+```bash
+git log --oneline
+```
+
+# Stash
+
+* `stash` komutu, çalışma dizinindeki değişiklikleri geçici olarak saklar. Bu bilgisayarımızdaki kopyala/yapıştır panosu gibi çalışır.
+
+* Bazı değişiklikler yapalım ve bunları `stash` ile saklayalım.
+
+```bash
+nano contents.md
+```
+
+```bash
+- banned.csv: A list of banned customers
+```
+
+```bash
+git stash
+```
+
+```bash
+cat contents.md
+```
+
+* Değişikliklerin kaybolduğunu göreceksiniz.
+
+* `git stash`komutunun bazı opsiyonları vardır fakat en sık kullanılanlar:
+
+    * `git stash list`: Stash listesini gösterir.
+    * `git stash pop`: Stash listesindeki en son değişiklikleri uygular ve siler.
+
+* `git stash pop` komutu ile değişiklikleri geri getirelim.
+
+```bash
+git stash pop
+```
+
+* Git stash komutu değişikliklerinizi bir stack (LIFO) veri yapısında depolar. Bu, değişikliklerinizi stash'ten aldığınızda her zaman en son değişiklikleri ilk alacağınız anlamına gelir.
+
+![stash](../images/stash.png)
 
 
+* Saklamak istediğiniz değişiklikleri belirli bir mesajla saklayabilirsiniz.
+
+```bash
+git stash  -m "Add banned.csv to contents.md"
+```
+
+```bash
+git stash list
+```
+
+* Stash listesindeki değişiklikleri uygulayabilirsiniz.
+
+```bash
+git stash apply 
+```
+
+* Stash listesindeki değişiklikleri silebilirsiniz.
+
+```bash
+git stash drop
+```
+
+* Son değişiklikleri commit edelim.
+
+```bash
+git add contents.md
+git commit -m "T: Add banned.csv to contents.md"
+```
+
+# Revert
+
+* `revert` komutu, belirli bir commit'i geri alır ve yeni bir commit oluşturur. Yapılan değişikliği geri alır ancak değişikliğin ve geri alınmasının tam geçmişini tutar.
+
+
+```bash
+git log --oneline
+```
+
+* `revert` komutu ile son commit'i geri alalım.
+
+```bash
+git revert commit-hash
+```
+
+```bash
+git log --oneline
+```
+
+```bash
+cat contents.md
+```
+
+* Kalabalık ekip projelerinde, `revert` komutu, bir commit'i geri almanın en güvenli yoludur. Bu, diğer geliştiricilerin çalışmalarını etkilemeden bir değişikliği geri almanıza olanak tanır.
+
+# Cherry-pick
+
+* `cherry-pick` komutu, belirli bir commit'i mevcut branch'e ekler. Bu, belirli bir commit'i başka bir branch'ten almanıza olanak tanır.
+
+* Yeni bir branch oluşturalım ve bu branch'e geçelim.
+
+```bash
+git switch -c add_partners
+```
+```bash
+nano test-file.md
+```
+
+```bash
+test kontrol edildi
+```
+
+```bash
+git add test-file.md
+git commit -m "U: Add test-file.md"
+```
+
+* Aynı dosyada farklı bir değişiklik yapalım ve commit edelim.
+
+```bash
+nano test-file.md
+```
+
+```bash
+test kontrol edildi ve onaylandı
+```
+
+```bash
+git add test-file.md
+git commit -m "V: Add test-file.md"
+```
+
+```bash
+git log --oneline
+```
+
+* Almak istediğimiz commit'in hash'ini kopyalayalım ve `cherry-pick` komutunu kullanarak bu commit'i main branch'ine ekleyelim.
+
+```bash
+git switch main
+```
+
+```bash
+git cherry-pick commit-hash
+```
+
+```bash
+git branch -d add_partners
+```
+
+# Tags
+
+* `tag` komutu, belirli bir commit'e etiket ekler. Bu, belirli bir commit'i daha kolay bir şekilde referans almanıza olanak tanır.
+
+* Etiketler oluşturulabilir ve silinebilir, ancak bir kez oluşturulduktan sonra değiştirilemez.
+
+* `git tag` komutu ile mevcut etiketleri görebilirsiniz. Yeni bir etiket oluşturmak için `git tag <tag-name>` komutunu kullanabilirsiniz.
+
+* Yeni bir etiket oluşturalım.
+
+```bash
+git tag -a v1.0 -m "Release v1.0"
+```
+
+* `git tag` komutu ile etiketi görelim.
+
+```bash
+git tag
+```
+```bash
+git log --oneline
+```
+
+## Semver
+
+* `Semver` (Semantic Versioning), yazılım sürümlerini belirlemek için kullanılan bir standarttır.
+
+![semver](../images/semver.png)
+
+* MAJOR değişiklikler yaptığımızda BÜYÜK artışlar (bu genellikle büyük bir sürümdür, örneğin Python 2 -> Python 3)
+
+* MINOR değişiklikler yaptığımızda KÜÇÜK artışlar (bu genellikle yeni özellikler eklemek anlamına gelir)
+
+* PATCH değişiklikler yaptığımızda düzeltmeler ve küçük değişiklikler (bu genellikle hata düzeltmeleri ve küçük iyileştirmeler anlamına gelir)
+
+# SORU
+
+* 'En yüksek' versiyon hangisidir?
+
+A) v4.22.5
+B) v4.2.999
+C) v3.111.0
+D) v3.11.111
+
+* Geçmişteki bir commit'e tag eklemek için aşağıdaki komutu kullanabiliriz.
+
+```bash
+git tag <tag-name> <commit-hash> -m "<tag-message>"
+```
 
 
 
