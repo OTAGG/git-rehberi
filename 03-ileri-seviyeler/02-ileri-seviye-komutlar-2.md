@@ -56,7 +56,7 @@ nano test-file.md
 
 ```bash
 git add test-file.md
-git commit -m "H: Add test-file.txt"
+git commit -m "I: Add test-file.txt"
 ```
 
 ```bash
@@ -114,7 +114,7 @@ nano titles.md
 
 ```bash
 git add titles.md
-git commit -m "J: Add Forrest Gump in titles.md"
+git commit -m "K: Add Forrest Gump in titles.md"
 ```
 
 ```bash
@@ -131,7 +131,7 @@ nano titles.md
 
 ```bash
 git add titles.md
-git commit -m "I: Add The Shawshank Redemption in titles.md"
+git commit -m "J: Add The Shawshank Redemption in titles.md"
 ```
 
 * `git merge` komutu ile iki branch'i birleştirelim.
@@ -173,7 +173,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 ```bash
 git add titles.md
-git commit -m "K: Merge main into add_customers"
+git commit -m "L: Merge main into add_customers"
 ```
 
 * Değişiklikleri `main` branch'ine gönderelim.
@@ -216,7 +216,7 @@ nano contents.md
 
 ```bash
 git add classic.csv contents.md
-git commit -m "L: Delete the last record in classic.csv and change the last line in contents.md"
+git commit -m "M: Delete the last record in classic.csv and change the last line in contents.md"
 ```
 
 * `main` branch'ine geri dönelim ve aynı satırlarda değişiklikler yapalım.
@@ -241,7 +241,7 @@ nano contents.md
 
 ```bash
 git add classic.csv contents.md
-git commit -m "M: Change the last record in classic.csv and change the last line in contents.md"
+git commit -m "N: Change the last record in classic.csv and change the last line in contents.md"
 ```
 
 * `delete_records` branch'ini `main` branch'ine birleştirelim.
@@ -265,7 +265,7 @@ git checkout --ours contents.md
 
 ```bash
 git add classic.csv contents.md
-git commit -m "N: Merge delete_records into main"
+git commit -m "O: Merge delete_records into main"
 ```
 
 # Rebase Conflicts
@@ -292,7 +292,7 @@ sam,ctrlman,closedai,ceo
 
 ```bash
 git add banned.csv
-git commit -m "O: Add banned.csv"
+git commit -m "P: Add banned.csv"
 ```
 * main branch'ine geri dönelim ve aynı dosyayı oluşturup, farklı bir değişiklik yapalım.
 
@@ -314,7 +314,7 @@ sam,ctrlman,closedai,ceo
 
 ```bash
 git add banned.csv
-git commit -m "P: Add banned.csv"
+git commit -m "R: Add banned.csv"
 ```
 
 * `banned` branch'ini `main` branch'ine rebase edelim.
@@ -393,6 +393,7 @@ nano contents.md
 git add contents.md
 git commit -m "Q: Add classic.csv to contents.md"
 ```
+```
 
 ```bash 
 nano classic.csv
@@ -403,7 +404,7 @@ The Shawshank Redemption, Frank Darabont, 1994
 ````
 ```bash
 git add classic.csv
-git commit -m "R: Add The Shawshank Redemption to classic.csv"
+git commit -m "S: Add The Shawshank Redemption to classic.csv"
 ```
 
 ```bash
@@ -415,7 +416,7 @@ Kayha,tbd,TheMarchOfTime,sidekick
 ````
 ```bash
 git add customers.csv
-git commit -m "S: Add customers.csv"
+git commit -m "T: Add customers.csv"
 ```
 * `git rebase -i HEAD~3` komutu ile son 3 commit'i birleştirelim.
 
@@ -511,7 +512,7 @@ git stash drop
 
 ```bash
 git add contents.md
-git commit -m "T: Add banned.csv to contents.md"
+git commit -m "U: Add banned.csv to contents.md"
 ```
 
 # Revert
@@ -558,7 +559,7 @@ test kontrol edildi
 
 ```bash
 git add test-file.md
-git commit -m "U: Add test-file.md"
+git commit -m "V: Add test-file.md"
 ```
 
 * Aynı dosyada farklı bir değişiklik yapalım ve commit edelim.
@@ -573,7 +574,7 @@ test kontrol edildi ve onaylandı
 
 ```bash
 git add test-file.md
-git commit -m "V: Add test-file.md"
+git commit -m "Y: Add test-file.md"
 ```
 
 ```bash
