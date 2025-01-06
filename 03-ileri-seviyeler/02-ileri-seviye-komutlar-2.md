@@ -180,8 +180,11 @@ git commit -m "L: Merge main into add_customers"
 
 ```bash
 git switch main
+```
+```bash
 git merge add_customers
 ```
+
 * add_customers branch'ini silelim.
 
 ```bash
@@ -200,9 +203,9 @@ git branch -d add_customers
 git switch -c delete_records
 ```
 
-```
+```bash
 nano classic.csv
-``
+```
 
 * En alttaki satırı silelim.
 
@@ -401,7 +404,8 @@ nano classic.csv
 
 ```bash
 The Shawshank Redemption, Frank Darabont, 1994
-````
+```
+
 ```bash
 git add classic.csv
 git commit -m "S: Add The Shawshank Redemption to classic.csv"
@@ -413,7 +417,8 @@ nano customers.csv
 
 ```bash
 Kayha,tbd,TheMarchOfTime,sidekick
-````
+```
+
 ```bash
 git add customers.csv
 git commit -m "T: Add customers.csv"
